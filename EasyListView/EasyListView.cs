@@ -47,16 +47,21 @@ namespace EasyListView {
         public event DataSourceChangedEventHandler DataSourceChanged;
 
         /// <summary>
+        /// Placeholder for the initial value of ClickingColumnHeaderSorts
+        /// </summary>
+        private bool _clickingColumnHeaderSorts;
+
+        /// <summary>
         /// Determines whether or not the ListView subscribe to the
         /// sorting feature that is done when user clicks the column header
         /// </summary>
         public bool ClickingColumnHeaderSorts {
 
-            get { return ClickingColumnHeaderSorts; }
+            get { return this._clickingColumnHeaderSorts; }
 
             set {
 
-                ClickingColumnHeaderSorts = value;
+                this._clickingColumnHeaderSorts = value;
 
                 if (value) {
                     this.ColumnClick += EasyListView_ColumnClick;
@@ -77,6 +82,7 @@ namespace EasyListView {
         /// Default constructor
         /// </summary>
         public EasyListView() {
+            this._clickingColumnHeaderSorts = false;
             this._colHeadAutRezStyle = ColumnHeaderAutoResizeStyle.HeaderSize;
             this._dataSource = null;
         }
