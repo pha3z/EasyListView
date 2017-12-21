@@ -1,4 +1,11 @@
-﻿using System.Windows.Forms;
+﻿/*
+ * Easy List View
+ * Daniel L. Astillero
+ * daniel.l.astillero@gmail.com
+ * 
+ * */
+
+using System.Windows.Forms;
 using System.Data;
 using System.Drawing;
 using System;
