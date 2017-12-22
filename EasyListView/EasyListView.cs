@@ -165,23 +165,11 @@ namespace EasyListView {
 
                             this._dataSource = dataSource.Copy() as DataTable;
 
-                            this._dataSource.AsEnumerable().ToList().ForEach(r => {
-
-                                this._dataSource.Columns.Cast<DataColumn>().ToList().ForEach(c => {
-                                    if (c.DataType == typeof(DateTime)) {
-                                        r[c.ColumnName] = TimeZoneInfo.ConvertTime((r[c.ColumnName] as DateTime?) ?? DateTime.MinValue, TimeZoneInfo.Utc, TimeZoneInfo.Local);
-                                    }
-                                });
-
-                            });
-
                             dataSource.Columns.Cast<DataColumn>().ToList().ForEach(c => this.Columns.Add(c.ColumnName));
-
-                            ListViewItem lvi;
 
                             foreach (DataRow row in dataSource.Rows) {
 
-                                lvi = new ListViewItem();
+                                var lvi = new ListViewItem();
 
                                 foreach (DataColumn col in dataSource.Columns) {
 
